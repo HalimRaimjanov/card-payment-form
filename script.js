@@ -19,4 +19,77 @@ inputt.addEventListener('input', () => {
           a4 = array.slice(12, 16)
           aw4 = a4.join(' ')
     }
+    output.innerHTML = `${aw1} &nbsp; ${aw2} &nbsp;${aw3} &nbsp; ${aw4}`
+
+        type(a1)
 })
+
+ // card type logic code ---------------------------
+ function type(a) {
+    let type = document.querySelector('.card-type')
+    let visa = document.querySelector('.visa')
+    let master = document.querySelector('.master')
+    aa = a.join('')
+    console.log(`a is ${aa}`)
+    if (aa[0] == 4) {
+      master.setAttribute('style', 'display:none')
+    } else if ((aa >= 2221 && aa <= 2720) || (aa >= 51 && aa <= 55)) {
+      visa.setAttribute('style', 'display:none')
+    }
+  }
+
+  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  // card valid month and year code -------------------------
+  // (month)-------------
+  let month = document.querySelector('.month')
+  let cardmonth = document.querySelector('.cardmonth')
+  cardmonth.addEventListener('input', () => {
+    let card = document.querySelector('.card')
+    card.setAttribute(
+      'style',
+      'transform: translateY(-190px) rotateY(0deg);',
+    )
+    month.innerHTML = cardmonth.value
+  })
+  // (year)--------------
+  let year = []
+  let years = document.querySelector('.year')
+  let cardyear = document.querySelector('.cardyear')
+  cardyear.addEventListener('input', () => {
+    let card = document.querySelector('.card')
+    card.setAttribute(
+      'style',
+      'transform: translateY(-190px) rotateY(0deg);',
+    )
+    for (var i = 0; i <= 4; i++) {
+      year[i] = cardyear.value[i]
+
+      y1 = year.slice(2, 4)
+      yw1 = y1.join(' ')
+    }
+    years.innerHTML = yw1
+  })
+  // card holder name code------------------------
+  let cardhodername = document.querySelector('.cardhoder-name')
+  let cardno = document.querySelector('.cardholdername')
+  cardno.addEventListener('input', () => {
+    let card = document.querySelector('.card')
+    card.setAttribute(
+      'style',
+      'transform: translateY(-190px) rotateY(0deg);',
+    )
+    cardhodername.innerHTML = cardno.value
+  })
+
+  // cvc code ---------------------------------
+  let cvc = document.querySelector('.cvc')
+  let cardcvc = document.querySelector('.card-cvc')
+  let card = document.querySelector('.card')
+  cardcvc.addEventListener('input', () => {
+    card.setAttribute(
+      'style',
+      'transform: translateY(-190px) rotateY(180deg);',
+    )
+    cvc.innerHTML = cardcvc.value
+  })
